@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="32dp"
+        android:text="Bienvenido"
+        android:textSize="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <TextView
+            android:id="@+id/Nom_bienv_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="155dp" />
+
+        <TextView
+            android:id="@+id/Nom_bienvrep_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/User_bienv_Linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/User_bienv_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+        <TextView
+
+            android:id="@+id/User_bienvrep_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Pass_bienv_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/User_bienv_Linearlayout">
+
+        <TextView
+            android:id="@+id/Pass_bienv_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+        <TextView
+
+            android:id="@+id/Pass_bienvrep_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/email_bienv_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pass_bienv_LinearLayout">
+
+        <TextView
+            android:id="@+id/Emaul_bienv_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+        <TextView
+
+
+            android:id="@+id/Email_bienvrep_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="209dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

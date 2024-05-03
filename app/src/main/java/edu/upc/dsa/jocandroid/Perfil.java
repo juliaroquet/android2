@@ -2,7 +2,6 @@ package edu.upc.dsa.jocandroid;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +14,7 @@ import edu.upc.dsa.jocandroid.modelo.LoginUsuario;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 import android.os.Bundle;
 

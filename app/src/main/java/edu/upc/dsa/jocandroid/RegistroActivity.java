@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import edu.upc.dsa.jocandroid.databinding.ActivityRegistroBinding;
 import edu.upc.dsa.jocandroid.modelo.RegistroReq;
 
+import edu.upc.dsa.jocandroid.modelo.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -105,11 +106,11 @@ public class RegistroActivity extends AppCompatActivity
         }
 
         RegistroReq usuarioRegister = new RegisterUserTO(usuario,password,nombre,email);
-        Call<UserTO> call = apiInterface.addUser(usuarioRegister);
-        call.enqueue(new Callback<UserTO>()
+        Call<Usuario> call = apiInterface.addUser(usuarioRegister);
+        call.enqueue(new Callback<Usuario>()
         {
             @Override
-            public void onResponse(Call<UserTO> call, Response<UserTO> response)
+            public void onResponse(Call<Usuario> call, Response<Usuario> response)
             {
                 if (!response.isSuccessful())
                 {
@@ -117,7 +118,7 @@ public class RegistroActivity extends AppCompatActivity
                     Toast.makeText(RegistroActivity.this, "Usuario ya registrado", Toast.LENGTH_LONG).show();
                     return;
                 }
-                UserTO userTO = response.body();
+                Usuario userTO = response.body();
                 Toast.makeText(Register.this, "Bienvenido " + userTO.getUserName(), Toast.LENGTH_LONG).show();
                 Log.d("Add Usuario", "Successful add Usuario " + userTO.getUserName());
 

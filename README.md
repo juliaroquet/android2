@@ -51,6 +51,10 @@ public class ApiClient {
     return retrofit;
     }
 
+
+
+    https://developer.android.com/develop/ui/views/launch/splash-screen?hl=es-419
+
     public static UserService getService(){
         UserService userService = getRetrofit().create(UserService.class);
         return userService;

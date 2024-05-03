@@ -104,7 +104,7 @@ public class RegistroActivity extends AppCompatActivity
             return;
         }
 
-        RegisterUserTO usuarioRegister = new RegisterUserTO(usuario,password,nombre,email);
+        RegistroReq usuarioRegister = new RegisterUserTO(usuario,password,nombre,email);
         Call<UserTO> call = apiInterface.addUser(usuarioRegister);
         call.enqueue(new Callback<UserTO>()
         {

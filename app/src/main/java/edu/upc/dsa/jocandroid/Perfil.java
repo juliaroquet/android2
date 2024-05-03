@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import edu.upc.dsa.jocandroid.modelo.Usuario;
+import edu.upc.dsa.jocandroid.modelo.LoginUsuario;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -41,7 +42,7 @@ public class Perfil extends AppCompatActivity
         SharedPreferences sharedPref = getSharedPreferences("Credenciales", Context.MODE_PRIVATE);
         String userName = sharedPref.getString("Usuario", null).toString();
 
-        Call <Usuario> call = apiInterface.getUser(userName);
+        Call <Usuario> call = apiInterface.getUser(String userName);
         call.enqueue(new Callback<Usuario>()
         {
             

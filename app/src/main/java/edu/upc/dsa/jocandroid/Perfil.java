@@ -42,7 +42,7 @@ public class Perfil extends AppCompatActivity
         SharedPreferences sharedPref = getSharedPreferences("Credenciales", Context.MODE_PRIVATE);
         String userName = sharedPref.getString("Usuario", null).toString();
 
-        Call <Usuario> call = apiInterface.getUser(String userName);
+        Call <Usuario> call = apiInterface.getUser(userName);
         call.enqueue(new Callback<Usuario>()
         {
             

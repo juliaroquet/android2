@@ -41,18 +41,19 @@ public class Perfil extends AppCompatActivity
         SharedPreferences sharedPref = getSharedPreferences("Credenciales", Context.MODE_PRIVATE);
         String userName = sharedPref.getString("Usuario", null).toString();
 
-        Call<UserTO> call = apiInterface.getUser(userName); //no se solucionarlo UserTO
-        call.enqueue(new Callback<UserTO>() {
+        Call <Usuario> call = apiInterface.getUser(userName);
+        call.enqueue(new Callback<Usuario>()
+        {
             
-            public void onResponse(Call<UserTO> call, Response<UserTO> response) {
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if (!response.isSuccessful()) {
                     Log.d("Profile", "Error usuario  no existe");
                     return;
                 }
                 Log.d("Perfil", "Successful  " + userName);
-                UserTO data = response.body();
+                Usuario data = response.body();
                 etusuario.setText(data.getUsuario());
-                etname.setText("Nombre" + data.getNombre);
+                etname.setText("Nombre" + data.getNombre());
                 etemail.setText("Email     " + data.getEmail());
             }
 

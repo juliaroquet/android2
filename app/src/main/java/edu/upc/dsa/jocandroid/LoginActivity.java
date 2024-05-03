@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import edu.upc.dsa.jocandroid.modelo.LoginUsuario;
+import edu.upc.dsa.jocandroid.modelo.RegistroReq;
+import edu.upc.dsa.jocandroid.modelo.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +23,7 @@ import android.os.Bundle;
 
 
 public class LoginActivity extends AppCompatActivity {
-    TextView loginName;
+    TextView LoginUsuario;
     TextView PassLog_Text;
     ApiInterface apiInterface;
 
@@ -32,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
 
-        getSupportActionBar().hide();
 
         Retrofit retrofit =new  Retrofit.Builder()
 
@@ -47,13 +48,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void Login_BtnonClick (View view) {
-        loginName = (TextView) findViewById(R.id.EmailLog_Text);
+        LoginUsuario = (TextView) findViewById(R.id.EmailLog_Text);
         PassLog_Text = (TextView) findViewById(R.id.PassLog_Text);
         //Inicio Sesión Usuario
 
-        LoginUsuario usuario = new LoginUsuario(loginName.getText().toString(), PassLog_Text.getText().toString());
+        LoginUsuario usuario = new LoginUsuario(LoginUsuario.getText().toString(), PassLog_Text.getText().toString());
 
-        Log.d("LoginUsuario", "Login user --> " + usuario.getUsuario());
+        Log.d("LoginUsuario", "Login user --> " + usuario.getEmail());
         Call<LoginUsuario> call = apiInterface.loginUser(usuario);
         call.enqueue(new Callback<LoginUsuario>() {
             public void onResponse(Call<LoginUsuario> call, Response<LoginUsuario> response) {
@@ -65,10 +66,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 LoginUsuario LoginUsuario = response.body();
-                Toast.makeText(LoginUsuario.this, "Bienvenido " + LoginUsuario.getUsuario(), Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Bienvenido " + LoginUsuario.getUsuario(), Toast.LENGTH_LONG).show();
                 Log.d("LoginUser", "Successful loginUser " + LoginUsuario.getUsuario());
                 saveSharedPreferences(LoginUsuario);
-                Intent intent = new Intent(LoginActivity.this, MainActivity.this);
+                Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -83,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void loginToRegister(View view) {
-        Intent intent = new Intent(this, RegistroActivity.this);
+        Intent intent = new Intent(this, RegistroActivity.class);
         startActivity(intent);
         finish();
     }
@@ -91,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
     public void saveSharedPreferences(LoginUsuario loginUsuario) {
         SharedPreferences sharedPref = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("usuario", loginUserTO.getUserName());
-        editor.putString("password", loginUserTO.getPassword());
+        editor.putString("usuario", loginUsuario.getEmail());
+        editor.putString("password", loginUsuario.getPassword());
         Log.d("LoginUser", "Save usuario--> " + loginUsuario.getUsuario());
         Log.d("LoginUser", "Save password --> " + loginUsuario.getPassword());
         editor.commit();

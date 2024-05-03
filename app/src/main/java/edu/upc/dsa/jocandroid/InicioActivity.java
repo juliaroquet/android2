@@ -15,7 +15,7 @@ public class InicioActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
+        setContentView(R.layout.activity_perfil);
         inicio();
         cargarDatos();
     }

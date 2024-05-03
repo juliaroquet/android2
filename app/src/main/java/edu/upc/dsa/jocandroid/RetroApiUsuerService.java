@@ -1,4 +1,4 @@
-package edu.upc.dsa.jocandroid.Service;
+package edu.upc.dsa.jocandroid;
 
 import edu.upc.dsa.jocandroid.modelo.Usuario;
 import retrofit2.Call;

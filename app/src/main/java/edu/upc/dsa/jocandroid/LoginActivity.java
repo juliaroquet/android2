@@ -1,5 +1,9 @@
 package edu.upc.dsa.jocandroid;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         LoginUsuario usuario = new LoginUsuario(loginName.getText().toString(), PassLog_Text.getText().toString());
 
-        Log.d("LoginUser", "Login user --> " + usuario.getusuario());
+        Log.d("LoginUsuario", "Login user --> " + usuario.getUsuario());
         Call<LoginUsuario> call = apiInterface.loginUser(usuario);
         call.enqueue(new Callback<LoginUsuario>() {
             public void onResponse(Call<LoginUsuario> call, Response<LoginUsuario> response) {
@@ -61,8 +65,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 LoginUsuario LoginUsuario = response.body();
-                Toast.makeText(Login.this, "Bienvenido " + LoginUsuario.getusuario(), Toast.LENGTH_LONG).show();
-                Log.d("LoginUser", "Successful loginUser " + LoginUsuario.getusuario());
+                Toast.makeText(LoginUsuario.this, "Bienvenido " + LoginUsuario.getUsuario(), Toast.LENGTH_LONG).show();
+                Log.d("LoginUser", "Successful loginUser " + LoginUsuario.getUsuario());
                 saveSharedPreferences(LoginUsuario);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.this);
                 startActivity(intent);
@@ -77,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
     public void loginToRegister(View view) {
         Intent intent = new Intent(this, RegistroActivity.this);
         startActivity(intent);
@@ -88,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("usuario", loginUserTO.getUserName());
         editor.putString("password", loginUserTO.getPassword());
-        Log.d("LoginUser", "Save usuario--> " + loginUsuario.getUserName());
+        Log.d("LoginUser", "Save usuario--> " + loginUsuario.getUsuario());
         Log.d("LoginUser", "Save password --> " + loginUsuario.getPassword());
         editor.commit();
     }

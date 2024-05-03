@@ -1,15 +1,20 @@
 package edu.upc.dsa.jocandroid;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.IOException;
 
 import androidx.navigation.NavController;
@@ -65,9 +70,10 @@ public class RegistroActivity extends AppCompatActivity
 
     public void doneClick(View view) throws IOException
     {
-        findViewById(R.id.textViewErrorPass).setVisibility(View.GONE);
-        findViewById(R.id.textViewErrorCampos).setVisibility(View.GONE);
-        findViewById(R.id.textViewErrorMail).setVisibility(View.GONE);
+        //los id.textView dan error porque no estan en los ficheros xml
+        //findViewById(R.id.textViewErrorPass).setVisibility(View.GONE);
+        //findViewById(R.id.textViewErrorCampos).setVisibility(View.GONE);
+        //findViewById(R.id.textViewErrorMail).setVisibility(View.GONE);
 
         String nombre = etnombre.getText().toString();
         String usuario = etusuario.getText().toString();

@@ -13,8 +13,8 @@ public class LoginUsuario
         this.password = password;
     }
 
-    private String email;
-    private String password;
+    public String email;
+    public String password;
 
 
     public String getEmail() {
@@ -34,5 +34,9 @@ public class LoginUsuario
     }
 
 
+    public String getUsuario() {
 
+
+        return null;
+    }
 }

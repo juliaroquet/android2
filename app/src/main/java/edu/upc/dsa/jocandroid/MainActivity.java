@@ -1,5 +1,7 @@
 package edu.upc.dsa.jocandroid;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -34,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView pantalla_resgistrar;
     private ArrayList<Usuario> listaUsuarios;
     private RetroApiUsuer loginService;
-    String Jugador;
+    private String jugador;
+    private String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
         apiInterface = retrofit.create(ApiInterface.class);
         sharedPref = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
-        userName = sharedPref.getString("usuario", null);
+        usuario = sharedPref.getString("usuario", null);
 
-        if (userName == null) {
+        if (usuario == null) {
             finish();
         }
 
@@ -60,5 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @Override
+    public void onClick(View v) {
 
+    }
 }

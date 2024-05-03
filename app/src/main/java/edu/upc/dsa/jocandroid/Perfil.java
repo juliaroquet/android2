@@ -1,5 +1,8 @@
 package edu.upc.dsa.jocandroid;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -38,23 +41,23 @@ public class Perfil extends AppCompatActivity
         SharedPreferences sharedPref = getSharedPreferences("Credenciales", Context.MODE_PRIVATE);
         String userName = sharedPref.getString("Usuario", null).toString();
 
-        Call<UserTO> call = apiInterface.getUser(userName);
+        Call<UserTO> call = apiInterface.getUser(userName); //no se solucionarlo UserTO
         call.enqueue(new Callback<UserTO>() {
-            @Override
+            
             public void onResponse(Call<UserTO> call, Response<UserTO> response) {
                 if (!response.isSuccessful()) {
                     Log.d("Profile", "Error usuario  no existe");
                     return;
                 }
                 Log.d("Perfil", "Successful  " + userName);
-                Usuario data = response.body();
-                etusuario.setText(data.getUserName());
+                UserTO data = response.body();
+                etusuario.setText(data.getUsuario());
                 etname.setText("Nombre" + data.getNombre);
                 etemail.setText("Email     " + data.getEmail());
             }
 
 
-            public void onFailure(Call<Usuario> call, Throwable t) {
+            public void onFailure(Call call, Throwable t) {
                 Toast.makeText(Perfil.this, "Error response from service", Toast.LENGTH_LONG).show();
                 Log.d("Profile", "Error in getting response from service: " + t.getMessage());
             }

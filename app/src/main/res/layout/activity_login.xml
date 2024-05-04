@@ -36,40 +36,38 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/Login_Btn"
+        app:layout_constraintBottom_toTopOf="@+id/Login_BtnonClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailLog_Text" />
 
     <Button
-        android:id="@+id/Login_Btn"
+        android:id="@+id/Login_BtnonClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
         android:text="LOGIN"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PassLog_Text" />
 
-    <TextView
-        android:id="@+id/RegistrarText_Btn"
+
+    <Button
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="32dp"
-        android:onClick="onClick"
-        android:text="Registrar"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Iniciar sesión"
+        android:onClick="Login_BtnonClick"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login_Btn" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 
 

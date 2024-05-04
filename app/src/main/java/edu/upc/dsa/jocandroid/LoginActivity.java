@@ -48,12 +48,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void Login_BtnonClick (View view) {
+        Log.d("LoginActivity", "Login_BtnonClick method called");
+        //obtener referencias TextViews
         LoginUsuario = (TextView) findViewById(R.id.EmailLog_Text);
         PassLog_Text = (TextView) findViewById(R.id.PassLog_Text);
+
+        //para comprobar que las referencias se hayan obtenido correctamente
+        if (LoginUsuario == null || PassLog_Text == null) {
+            Log.e("LoginActivity", "Error: TextView references are null");
+            return;
+        }
+
         //Inicio Sesión Usuario
 
         LoginUsuario usuario = new LoginUsuario(LoginUsuario.getText().toString(), PassLog_Text.getText().toString());
+        // Imprimimos en el log los datos del usuario
+        Log.d("LoginActivity", "Login user: " + usuario.getEmail() + ", Password: " + usuario.getPassword());
 
+
+        //vamos a la API
         Log.d("LoginUsuario", "Login user --> " + usuario.getEmail());
         Call<LoginUsuario> call = apiInterface.loginUser(usuario);
         call.enqueue(new Callback<LoginUsuario>() {
@@ -76,8 +89,8 @@ public class LoginActivity extends AppCompatActivity {
 
             public void onFailure(Call<LoginUsuario> call, Throwable t) {
 
-                Toast.makeText(LoginActivity.this, "Error del servicio service", Toast.LENGTH_LONG).show();
                 Log.d("LoginUser", "Error de inicio de sesión no hay usuario using retrofit: " + t.getMessage());
+                Toast.makeText(LoginActivity.this, "Error del servicio service", Toast.LENGTH_LONG).show();
             }
         });
     }

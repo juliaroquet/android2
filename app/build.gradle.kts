@@ -7,6 +7,11 @@ android {
     compileSdk = 34
 
     defaultConfig {
+
+
+
+
+
         applicationId = "edu.upc.dsa.jocandroid"
         minSdk = 21
         targetSdk = 34

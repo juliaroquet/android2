@@ -1,17 +1,11 @@
 package edu.upc.dsa.jocandroid;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import edu.upc.dsa.jocandroid.modelo.LoginUsuario;
-import edu.upc.dsa.jocandroid.modelo.RegistroReq;
-import edu.upc.dsa.jocandroid.modelo.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     ApiInterface apiInterface;
 
 
-    public static final String API_URL = "http://147.83.7.204:8080/dsaApp/";
+    public static final String API_URL = "http://10.0.2.2:8080/dsaApp/";
     //public static final String API_URL = "http://10.0.2.2:8080/dsaApp/";
 
     protected void onCreate(Bundle savedInstanceState)
@@ -62,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         //Inicio Sesión Usuario
 
         LoginUsuario usuario = new LoginUsuario(LoginUsuario.getText().toString(), PassLog_Text.getText().toString());
+
         // Imprimimos en el log los datos del usuario
         Log.d("LoginActivity", "Login user: " + usuario.getEmail() + ", Password: " + usuario.getPassword());
 
@@ -90,17 +85,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<LoginUsuario> call, Throwable t) {
 
                 Log.d("LoginUser", "Error de inicio de sesión no hay usuario using retrofit: " + t.getMessage());
-                Toast.makeText(LoginActivity.this, "Error del servicio service", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Error del servicio", Toast.LENGTH_LONG).show();
             }
         });
     }
 
 
-    public void loginToRegister(View view) {
-        Intent intent = new Intent(this, RegistroActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
+
 
     public void saveSharedPreferences(LoginUsuario loginUsuario) {
         SharedPreferences sharedPref = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
@@ -109,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("password", loginUsuario.getPassword());
         Log.d("LoginUser", "Save usuario--> " + loginUsuario.getUsuario());
         Log.d("LoginUser", "Save password --> " + loginUsuario.getPassword());
-        editor.commit();
+        editor.apply();
     }
 }
 

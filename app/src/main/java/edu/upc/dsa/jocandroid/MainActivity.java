@@ -28,7 +28,7 @@ import androidx.annotation.RequiresApi;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
-    ApiInterface apiInterface;
+    edu.upc.dsa.jocandroid.ApiInterface apiInterface;
     public static final String API_URL = "http://147.83.7.204:8080/dsaApp/";
 
     private EditText etemaillog;
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .baseUrl(API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        apiInterface = retrofit.create(ApiInterface.class);
+        apiInterface = retrofit.create(edu.upc.dsa.jocandroid.ApiInterface.class);
         sharedPref = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         usuario = sharedPref.getString("usuario", null);
 

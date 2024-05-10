@@ -1,16 +1,12 @@
 package edu.upc.dsa.jocandroid;
 import android.content.Context;
-import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import edu.upc.dsa.jocandroid.modelo.Usuario;
-import edu.upc.dsa.jocandroid.modelo.LoginUsuario;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;

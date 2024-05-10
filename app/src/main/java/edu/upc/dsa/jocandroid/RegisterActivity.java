@@ -107,7 +107,7 @@ public class RegisterActivity extends AppCompatActivity
 
                 SharedPreferences sharedPrefence = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPrefence.edit();
-                editor.putString("Usuario", userRegister.getUsername());
+                editor.putString("Usuario", userRegister.getUsuario());
                 editor.putString("Password", userRegister.getPassword());
                 Log.d("Add usuario", "Guardar usuario" + userRegister.getUsername());
                 Log.d("Add Usuario", "Guardar password" + userRegister.getPassword());

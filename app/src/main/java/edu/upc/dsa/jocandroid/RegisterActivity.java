@@ -1,5 +1,6 @@
 package edu.upc.dsa.jocandroid;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,9 +37,12 @@ public class RegisterActivity extends AppCompatActivity
 
     ApiInterface apiInterface;
 
+    ProgressBar spinner;
+
     public static final String BASE_URL = "http://147.83.7.204:8080/dsaApp/";
 
 
+    @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,9 @@ public class RegisterActivity extends AppCompatActivity
         etemail = findViewById(R.id.email_registeditTextText3);
         etpassword = findViewById(R.id.passw_regist_editTextText4);
         etpassword2 = findViewById(R.id.passw2_register_editTextText5);
+        spinner = (ProgressBar)findViewById(R.id.progressBar);
+        spinner.setVisibility(View.GONE);
+
     }
     public void doneClick(View view) throws IOException
     {

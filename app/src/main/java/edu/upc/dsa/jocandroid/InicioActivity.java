@@ -13,7 +13,7 @@ public class InicioActivity extends AppCompatActivity
     private TextView etnominiperfil, etuseriniperfil, etemailiniperfil;
     private Usuario objUsuario;
     ApiInterface apiInterface;
-    public static final String API_URL = "http://147.83.7.204:8080/dsaApp/";
+    public static final String API_URL = "http://10.0.0.2:8080/dsaApp/";
 
     protected void onCreate(Bundle savedInstanceState)
     {
